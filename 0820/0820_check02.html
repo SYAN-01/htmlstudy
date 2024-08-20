@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            display: none;
+        }
+        input:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="이미지 1" onclick="클릭('model_open')">
+    <input type="button" value="이미지 2" onclick="클릭('model_open2')">
+    <input type="button" value="이미지 3" onclick="클릭('model_open3')">
+
+    <img src = "gihyun.jpg" alt = "귀여운사진" class = "img" id="model_open">
+    <img src = "ccc.jpg" alt = "귀여운사진" class = "img" id="model_open2">
+    <img src = "ddd.jpg" alt = "귀여운사진" class = "img" id="model_open3">
+
+    <script>
+        function 클릭(btn) {
+            let docu = document.getElementById(btn)
+
+            if(docu.style.display == 'block')  {
+                docu.style.display = 'none';
+            } else {
+                docu.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
