@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    type: 사용자 기능 종류
+    id: html테그 중, 해당 tag를 가리킬 수 있는 수단 중 하나 ( 대표 )
+    중복 불가
+    value : 사용자가 입력하는 공간, 값
+    -->
+    <input type="text" name="" id="user_id" value="입력되는 공간">
+
+    <input type="button" value="클릭" onclick="클릭()">
+        
+    <script>
+        //document.getElementById('[HTML에 선언 된 ID]')
+        let dd = document.getElementById('user_id');  
+        //stack - heap
+        //dd => 'hello world'; -> string x.
+        document.getElementById('user_id').value = 'Java';
+        dd.value = '청양';
+
+        //이벤트 핸들러 ( 마우스, 키보드, 페이지 )
+        function 클릭(){
+            alert(dd.value);
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="first_num" value="">+
+    <input type="text" name="" id="second_num" value="">
+    <input type="button" value="클릭" onclick="클릭()">
+    <input type="text" name="" id="result_num" value="">
+
+    <script>
+        let num1 = document.getElementById('first_num');  
+        let num2 = document.getElementById('second_num');  
+        let num3 = document.getElementById('result_num');  
+
+        function 클릭(){
+            num3.value = parseFloat(num1.value) + parseFloat(num2.value);
+        }
+
+    </script>
+
+
+</body>
+</html>
