@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 3px solid black;
+            background-color: deeppink;
+            transition: width 2s, height 2s;
+        }
+        .wid {
+            width: 80vh;
+        }
+        .hei {
+            height: 500px;
+        }
+        .cir{
+            border-radius: 500px;
+            transition: 2s;
+        }
+        .back{
+            background-color: deepskyblue;
+        }
+        .backgra{
+            background: linear-gradient(to right, red 0%, yellow 50%, blue 100%);
+        }
+        .img{
+            background-image: url(ccc.jpg);
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn1" value="너비 늘리기">
+    <input type="button" id="btn2" value="높이 늘리기">
+    <input type="button" id="btn3" value="모서리 둥글게 만들기">
+    <input type="button" id="btn4" value="배경화면 색깔 바꾸기">
+    <input type="button" id="btn5" value="그라데이션">
+    <input type="button" id="btn6" value="이미지 넣기">
+    <div class="box"></div>
+    <script>
+        // class 생성 방법
+        // element.classList.add([클래스 명칭]);
+
+        // class 삭제 방법
+        // element.classList.remove([클래스 명칭]);
+
+        // class 존재 유무 확인
+        // element.classList.contains([클래스 명칭]);
+
+        document.getElementById('btn1').addEventListener('click',wid);
+        document.getElementById('btn2').addEventListener('click',hei);
+        document.getElementById('btn3').addEventListener('click',cir);
+        document.getElementById('btn4').addEventListener('click',back);
+        document.getElementById('btn5').addEventListener('click',backgra);
+        document.getElementById('btn6').addEventListener('click',img);
+
+
+        function wid(){
+            let box = document.querySelector('.box'); 
+            if(box.classList.contains('wid')){
+                box.classList.remove('wid');
+            }else{
+                box.classList.add('wid');
+            }
+        }
+        function hei(){
+            let box = document.querySelector('.box'); 
+            if(box.classList.contains('hei')){
+                box.classList.remove('hei');
+            }else{
+                box.classList.add('hei');
+            }
+        }
+        function cir(){
+            let box = document.querySelector('.box'); 
+            if(box.classList.contains('cir')){
+                box.classList.remove('cir');
+            }else{
+                box.classList.add('cir');
+            }
+        }
+        function back(){
+            let box = document.querySelector('.box'); 
+            if(box.classList.contains('back')){
+                box.classList.remove('back');
+            }else{
+                box.classList.add('back');
+            }
+        }
+        function backgra(){
+            let box = document.querySelector('.box'); 
+            if(box.classList.contains('backgra')){
+                box.classList.remove('backgra');
+            }else{
+                box.classList.add('backgra');
+            }
+        }
+        function img(){
+            let box = document.querySelector('.box'); 
+            if(box.classList.contains('img')){
+                box.classList.remove('img');
+            }else{
+                box.classList.add('img');
+            }
+        }
+
+
+    </script>
+</body>
+</html>
