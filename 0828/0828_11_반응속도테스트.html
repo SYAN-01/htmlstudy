@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응속도 테스트</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f4e8ef;
+        }
+        .container {
+            position: relative;
+        }
+        .box {
+            position: relative;
+            width: 1000px;
+            height: 800px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 50px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .title {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+            padding: 10px 20px;
+            background: white; 
+            border-bottom: 2px solid #ccc; 
+            z-index: 1; 
+        }
+        .text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">반응속도 테스트</div>
+        <div class="box" id="box">
+            <div class="text">시작하려면 눌러 주세요</div>
+        </div>
+    </div>
+
+    <script>
+        let timeoutId;
+        let startTime;
+        let clickTime;
+
+        document.getElementById('box').addEventListener('click', start);
+
+        function start() {
+            document.getElementById('box').style.backgroundColor = 'red';
+            document.getElementById('box').innerHTML = '<div class="text">초록색이 되면 클릭해주세요</div>';
+            document.getElementById('box').removeEventListener('click', start); // 기존 클릭 이벤트 제거
+            const randomDelay = Math.floor(Math.random() * 4000) + 1000;  
+            timeoutId = setTimeout(stop, randomDelay);
+        }
+
+        function stop() {
+            document.getElementById('box').style.backgroundColor = 'green';
+            document.getElementById('box').innerHTML = '<div class="text">클릭!</div>';
+            document.getElementById('box').addEventListener('click', click); // 클릭 이벤트 핸들러 추가
+            startTime = Date.now();
+        }
+
+        function click() {
+            clickTime = Date.now();  
+            let reactionTime = clickTime - startTime;  
+            document.getElementById('box').style.backgroundColor = 'white';
+            document.getElementById('box').innerHTML = `<div class="text">반응속도: ${reactionTime}ms</div>`
+                                                        + '<div class="text">한번 더 할꺼면 클릭하셈.</div>';
+            document.getElementById('box').removeEventListener('click', click); 
+            document.getElementById('box').addEventListener('click', start); // 새로운 테스트 시작을 위한 클릭 이벤트 추가
+        }
+    </script>
+</body>
+</html>
